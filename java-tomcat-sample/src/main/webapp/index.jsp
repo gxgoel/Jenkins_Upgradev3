@@ -6,7 +6,7 @@
     <body>
         <form>
             <fieldset style="width:20%; background-color:#e6ffe6;">
-                <legend>Count visitor</legend>
+                <legend>Count visitor hai ji</legend>
                 <%
                     Integer hitsCount =
                     (Integer)application.getAttribute("hitCounter");
