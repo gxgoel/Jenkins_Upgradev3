@@ -1,58 +1,98 @@
-<html>
-<head>
-  <title>Order Book</title>
-</head>
- 
-<body>
-  <h1>Another E-Bookstore</h1>
-  <h2>Thank you for ordering...</h2>
- 
-  <%
-    String[] ids = request.getParameterValues("id");
-    if (ids != null) {
-  %>
-  <%@ page import = "java.sql.*" %>
-  <%
-      Connection conn = DriverManager.getConnection(
-          "jdbc:mysql://localhost:8888/ebookshop", "myuser", "xxxx"); // <== Check!
-      // Connection conn =
-      //    DriverManager.getConnection("jdbc:odbc:eshopODBC");  // Access
-      Statement stmt = conn.createStatement();
-      String sqlStr;
-      int recordUpdated;
-      ResultSet rset;
-  %>
-      <table border=1 cellpadding=3 cellspacing=0>
-        <tr>
-          <th>Author</th>
-          <th>Title</th>
-          <th>Price</th>
-          <th>Qty In Stock</th>
-        </tr>
-  <%
-      for (int i = 0; i < ids.length; ++i) {
-        // Subtract the QtyAvailable by one
-        sqlStr = "UPDATE books SET qty = qty - 1 WHERE id = " + ids[i];
-        recordUpdated = stmt.executeUpdate(sqlStr);
-        // carry out a query to confirm
-        sqlStr = "SELECT * FROM books WHERE id =" + ids[i];
-        rset = stmt.executeQuery(sqlStr);
-        while (rset.next()) {
-  %>
-          <tr>
-            <td><%= rset.getString("author") %></td>
-            <td><%= rset.getString("title") %></td>
-            <td>$<%= rset.getInt("price") %></td>
-            <td><%= rset.getInt("qty") %></td>
-          </tr>
-  <%    }
-        rset.close();
-      }
-      stmt.close();
-      conn.close();
-    }
-  %>
-  </table>
-  <a href="query.jsp"><h3>BACK</h3></a>
-</body>
-</html>
+<div class="wrapper row2">
+  <div id="container" class="clear">
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <div id="about-us" class="clear">
+      <!-- ####################################################################################################### -->
+      <div id="about-intro" class="one_third first">
+        <h2>Vivamuslibero Auguer</h2>
+        <div class="panorama"><img class="imgholder" src="images/demo/290x170.gif" alt="" /></div>
+        <p>&quot;Vivamus accumsan / Company Director&quot;</p>
+        <blockquote>
+          <p><span>&ldquo;</span> In odio. Mauris feugiat. Nunc posuere, felis sit amet faucibus convallis, tortor enim viverra quam, hendrerit interdum dui quam ut lacus. Vivamus accumsan donec molestie pede vel urna curabitur eget sem ornare felis.</p>
+        </blockquote>
+        <p>In sed neque id libero pretium luctus. Vivamus faucibus. Ut vitae elit. In hac habitasse platea dictumst. Proin et nisl ac orci tempus luctus. Aenean lacinia justo at nisi. Vestibulum sed eros sit amet nisl lobortis commodo. Suspendisse nulla. Vivamus ac lorem. Aliquam pulvinar purus at felis. Quisque convallis nulla id ipsum. Praesent vitae urna.</p>
+      </div>
+      <!-- ####################################################################################################### -->
+      <div id="skillset" class="one_third">
+        <h2>Vivamuslibero Auguer</h2>
+        <p>Lorem ipsum dolor sit amet, consectetaur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+        <p>Laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum Et harumd und.</p>
+        <h2>Vivamuslibero Auguer</h2>
+        <ul>
+          <li>Aliquam venenatis leo et orci.</li>
+          <li>Pellentesque eleifend vulputate massa.</li>
+          <li>Vivamus eleifend sollicitudin eros.</li>
+          <li>Maecenas vitae nunc.</li>
+          <li>Ut pretium odio eu nisi.</li>
+          <li>Nam condimentum mi id magna.</li>
+          <li>Pellentesque consectetuer, felis vel rhoncus.</li>
+          <li>Sed sollicitudin bibendum dui.</li>
+          <li>Nullam tempus erat id tortor.</li>
+        </ul>
+      </div>
+      <!-- ####################################################################################################### -->
+      <div id="team" class="one_third">
+        <h2>Vivamuslibero Auguer</h2>
+        <ul class="clear">
+          <li>
+            <div class="figure"><img src="images/demo/team-member.gif" alt="" />
+              <div class="figcaption">
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="figure"><img src="images/demo/team-member.gif" alt="" />
+              <div class="figcaption">
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="figure"><img src="images/demo/team-member.gif" alt="" />
+              <div class="figcaption">
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="figure"><img src="images/demo/team-member.gif" alt="" />
+              <div class="figcaption">
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="figure"><img src="images/demo/team-member.gif" alt="" />
+              <div class="figcaption">
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="figure"><img src="images/demo/team-member.gif" alt="" />
+              <div class="figcaption">
+                <p class="team_name">Name Goes Here</p>
+                <p class="team_title">Job Title Here</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- ####################################################################################################### -->
+    </div>
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+    <!-- ####################################################################################################### -->
+  </div>
+</div>
